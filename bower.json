@@ -1,0 +1,35 @@
+{
+  "name": "sweva-visualization-line-graph",
+  "version": "1.0.6",
+  "authors": [
+    "Anonymous <anonymous@example.com>"
+  ],
+  "description": "An element providing a solution to no problem in particular.",
+  "keywords": [
+    "web-component",
+    "polymer",
+    "seed"
+  ],
+  "main": "sweva-visualization-line-graph.html",
+  "license": "http://polymer.github.io/LICENSE.txt",
+  "homepage": "https://github.com/<USERNAME>/seed-element/",
+  "ignore": [
+    "/.*",
+    "/test/"
+  ],
+  "dependencies": {
+    "d3": "3.5.12",
+    "download-as-file": "https://github.com/bahmutov/download-as-file.git",  
+    "simg": "1.1.0",
+    "polymer": "Polymer/polymer#^1.2.0",
+    "paper-dropdown-menu": "PolymerElements/paper-dropdown-menu#^1.0.0",
+    "paper-menu": "PolymerElements/paper-menu#^1.0.0",
+    "paper-item": "PolymerElements/paper-item#^1.0.0",
+    "paper-slider": "PolymerElements/paper-slider#^1.0.0",
+    "paper-button": "PolymerElements/paper-button#^1.0.0"
+  },
+  "devDependencies": {
+    "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
+    "web-component-tester": "^4.0.0"
+  }
+}
