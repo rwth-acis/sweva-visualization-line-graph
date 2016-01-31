@@ -32,6 +32,17 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             graph.data = data;
             graph.update();
         }
+        var config = {
+            label: "Monthly electricity production in Australia",
+            ylabel: "million kilowatt hours",
+            xlabel: "date",
+            xtype: "date",
+            ytype: "linear",
+            xparse: "%Y-%m",
+            yparse: "",
+            xprint: "%m-%y",
+            yprint: ""
+        }
         var data = [{
             label: 'electricity',
             color: '#ff0000',
@@ -517,20 +528,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             ]
         }];
 
-        var config = {
-            label: "Monthly electricity production in Australia",
-            ylabel: "million kilowatt hours",
-            xlabel: "date",
-            xtype: "date",
-            ytype: "linear",
-            xparse: "%Y-%m",
-            yparse: "",
-            xprint: "%m-%y",
-            yprint: ""
-        }
+       
         var graph = document.querySelector('sweva-visualization-line-graph');
-        graph.config = config;
-        graph.data = data;
+        //graph.config = config;
+        
+
+        graph.set({ config: config, data: data });
 
         
 

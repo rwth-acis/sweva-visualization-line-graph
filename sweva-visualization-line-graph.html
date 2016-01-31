@@ -68,7 +68,6 @@ Example:
                 color: #fff;
                 background: #ABABAB;
             }
-            
         </style>
 
         <div id="canvas">
@@ -116,12 +115,12 @@ Example:
                 data: {
                     type: Object,
                     value: [],
-                    observer: 'dataChanged'
+                    //observer: 'dataChanged'
                 },
                 config: {
                     type: Object,
                     value: {},
-                    observer: 'configChanged'
+                    //observer: 'configChanged'
                 }
 
             },
@@ -144,6 +143,24 @@ Example:
                     this.setup(this.config);
                 }
 
+            },
+            set: function (value) {
+                if (value.config) {
+                    if (JSON.stringify(value.config) !== JSON.stringify(this.config)) {
+                        if (Object.keys(value.config).length > 0) {
+                            this.clear();
+                            this.config = value.config;
+                            this.setup(this.config);
+                        }
+                    }
+                }
+                if (value.data) {
+                    if (value.data.length == 0) {
+                        return;
+                    }
+                    this.data = value.data;
+                    this.update();
+                }
             },
             // Element Lifecycle
 
@@ -271,19 +288,18 @@ Example:
                 var xMax = 0;
                 var yMin = 0;
                 var yMax = 0;
-                
+
                 for (var i = 0; i < this.data.length; i++) {
-                    
 
                     if (this.config.xtype == 'date') {
 
-                        if (this.data[i].data.length > 0 && typeof this.data[i].data[0][0]==='string') {
+                        if (this.data[i].data.length > 0 && typeof this.data[i].data[0][0] === 'string') {
                             for (var k = 0; k < this.data[i].data.length; k++) {
                                 this.data[i].data[k][0] = this.parseDate[0](this.data[i].data[k][0]);
                             }
                         }
                     }
-                    
+
                     if (this.data[i].data.length > 0 && typeof this.data[i].data[0][1] === 'string') {
                         if (this.config.ytype == 'date') {
                             for (var k = 0; k < dataSetthis.data[i].data.length; k++) {
@@ -292,7 +308,7 @@ Example:
                         }
                     }
                 }
-                
+
                 //global min max
                 for (var i = 0; i < this.data.length; i++) {
 
@@ -488,7 +504,7 @@ Example:
                     var focus = this.svg.append('g')
                         .attr('class', 'focus')
                         .style('display', '')
-                        .style('pointer-events','none')
+                        .style('pointer-events', 'none')
 
                     focus.append('circle')
                         .attr('r', 4.5)
@@ -527,13 +543,13 @@ Example:
 
             },
             clear: function () {
-                
+
                 var children = Polymer.dom(this.$.canvas).children;
                 for (var i = 0; i < children.length; i++) {
                     Polymer.dom(this.$.canvas).removeChild(children[i]);
                 }
                 Polymer.dom.flush();
-                
+
             },
             resetZoom: function () {
                 this.zoom.translate([0, 0]).scale(this.zoom.scaleExtent()[0]).event(this.svg);
