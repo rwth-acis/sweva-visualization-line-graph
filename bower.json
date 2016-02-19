@@ -19,8 +19,7 @@
   ],
   "dependencies": {
     "d3": "3.5.12",
-    "download-as-file": "https://github.com/bahmutov/download-as-file.git",  
-    "simg": "1.1.0",
+    "download-as-file": "https://github.com/bahmutov/download-as-file.git",
     "polymer": "Polymer/polymer#^1.2.0",
     "paper-dropdown-menu": "PolymerElements/paper-dropdown-menu#^1.0.0",
     "paper-menu": "PolymerElements/paper-menu#^1.0.0",

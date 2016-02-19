@@ -1079,6 +1079,7 @@ return /******/ (function(modules) { // webpackBootstrap
                 box-sizing: border-box;
                 font-family: 'Verdana', sans-serif;
                 background-color: white;
+                position: relative;
             }
 
             .hidden {
@@ -1096,29 +1097,35 @@ return /******/ (function(modules) { // webpackBootstrap
                 align-items: center;
             }
 
+            .controls {
+                border-top: 1px solid #666;
+                height: 60px;
+            }
+
+                .controls > * {
+                    flex: 1;
+                }
+
             .label {
                 font-size: small;
             }
 
             paper-button {
-                color: #fff;
-                background: #ABABAB;
             }
         </style>
 
         <div id="canvas">
         </div>
-        <div class="horizontal-flex">
+        <div class="horizontal-flex controls">
             <div class="menu">
-                <paper-dropdown-menu label="Export as..." vertical-align="bottom">
-                    <paper-menu class="dropdown-content">
-                        <paper-item on-click="getSvg">SVG</paper-item>
-                        <paper-item on-click="getPng">PNG</paper-item>
-                    </paper-menu>
-                </paper-dropdown-menu>
+                <select id="export-select" name="select" style="width:100%">
+                    <option value="0" disabled="" selected="">Export as...</option>
+                    <option value="1">SVG</option>
+                    <option value="2">PNG</option>
+                </select>              
             </div>
             <div>
-                <span class="label">Zoom</span><paper-slider id="zoom-slider" pin=""></paper-slider>
+                <span class="label">Zoom</span><paper-slider id="zoom-slider" pin="" style="width:100%"></paper-slider>
             </div>
             <paper-button id="reset-zoom" raised="" on-click="resetZoom">
                 Reset
@@ -1132,11 +1139,7 @@ return /******/ (function(modules) { // webpackBootstrap
         Polymer({
             is: 'sweva-visualization-line-graph',
 
-            properties: {
-                config: {
-                    type: Object,
-                    value: null
-                },
+            properties: {                
                 dimensions: {
                     type: Object,
                     value: {
@@ -1181,6 +1184,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
             },
             set: function (value) {
+
                 if (value.config) {
                     if (JSON.stringify(value.config) !== JSON.stringify(this.config)) {
                         if (Object.keys(value.config).length > 0) {
@@ -1194,6 +1198,7 @@ return /******/ (function(modules) { // webpackBootstrap
                     if (value.data.length == 0) {
                         return;
                     }
+
                     this.data = value.data;
                     this.update();
                 }
@@ -1209,7 +1214,8 @@ return /******/ (function(modules) { // webpackBootstrap
             },
 
             attached: function () {
-
+                var select = this.$$('#export-select');
+                select.addEventListener('click', this.handleExportClicked.bind(this), false);
             },
 
             detached: function () {
@@ -1227,9 +1233,9 @@ return /******/ (function(modules) { // webpackBootstrap
                 this.config.label = config.label || 'Graph';
                 this.config.ylabel = config.ylabel || 'y';
                 this.config.xlabel = config.xlabel || 'x';
-                this.config.xtype = config.xtype || 'linear';
+                this.config.xtype = config.xtype || 'date';
                 this.config.ytype = config.ytype || 'linear';
-                this.config.xparse = config.xparse || '';
+                this.config.xparse = config.xparse || '-';
                 this.config.yparse = config.yparse || '';
                 this.config.xprint = config.xprint || '';
                 this.config.yprint = config.yprint || '';
@@ -1245,8 +1251,8 @@ return /******/ (function(modules) { // webpackBootstrap
                 this.margin = { top: 50, right: 50, bottom: 150, left: 70 };
                 this.width = this.dimensions.width - this.margin.left - this.margin.right;
                 this.height = this.dimensions.height - this.margin.top - this.margin.bottom;
-
-                this.svg = d3.select('#canvas').append('svg')
+                var canvas = this.$$('#canvas');
+                this.svg = d3.select(canvas).append('svg')
                    .attr('viewBox', '0 0 ' + (this.width + this.margin.left + this.margin.right) + ' ' + (this.height + this.margin.top + this.margin.bottom))
                    .attr('font', '15px sans-serif')
                  .append('g')
@@ -1264,6 +1270,7 @@ return /******/ (function(modules) { // webpackBootstrap
                    .attr('width', this.width)
                    .attr('height', this.height)
                    .attr('fill', '#fff')
+
                    .on('mousemove', this.mousemove.bind(this));
 
                 this.svg.append('clipPath')
@@ -1314,34 +1321,61 @@ return /******/ (function(modules) { // webpackBootstrap
                    .attr('class', 'y axis');
 
             },
+            resize: function (width, height) {
+                this.dimensions.width = width;
+                this.dimensions.height = height - 75;
 
+                if (this.initialized) {
+                    this.clear();
+                    this.setup(this.config);
+                    this.update();
+                }
+            },
             update: function (data) {
                 if (typeof data != 'undefined') {
                     this.data = data;
                     return;
                 }
-                var xMin = 0;
+                
+                if(!this.data[0]){
+                  return;
+                }
+                var xMin = Number.POSITIVE_INFINITY;
                 var xMax = 0;
-                var yMin = 0;
+                var yMin = Number.POSITIVE_INFINITY;
                 var yMax = 0;
 
                 for (var i = 0; i < this.data.length; i++) {
 
                     if (this.config.xtype == 'date') {
 
-                        if (this.data[i].data.length > 0 && typeof this.data[i].data[0][0] === 'string') {
+                        if (this.data[i].data.length > 0) {
                             for (var k = 0; k < this.data[i].data.length; k++) {
-                                this.data[i].data[k][0] = this.parseDate[0](this.data[i].data[k][0]);
+                                if (this.config.xparse == '-' || this.config.xparse == '') {
+
+                                    this.data[i].data[k][0] = new Date(this.data[i].data[k][0]);
+                                }
+                                else {
+                                    this.data[i].data[k][0] = this.parseDate[0](this.data[i].data[k][0]);
+                                }
+
                             }
                         }
                     }
+                    if (this.config.ytype == 'date') {
+                        if (this.data[i].data.length > 0) {
+                            if (this.config.ytype == 'date') {
 
-                    if (this.data[i].data.length > 0 && typeof this.data[i].data[0][1] === 'string') {
-                        if (this.config.ytype == 'date') {
-                            for (var k = 0; k < dataSetthis.data[i].data.length; k++) {
-                                this.data[i].data[k][1] = this.parseDate[1](this.data[i].data[k][1]);
+                                if (this.config.yparse == '-' || this.config.yparse == '') {
+
+                                    this.data[i].data[k][1] = new Date(this.data[i].data[k][1]);
+                                }
+                                else {
+                                    this.data[i].data[k][1] = this.parseDate[1](this.data[i].data[k][1]);
+                                }
                             }
                         }
+
                     }
                 }
 
@@ -1368,6 +1402,7 @@ return /******/ (function(modules) { // webpackBootstrap
                         var ymin = d3.min(this.data[i].data, function (d) {
                             return d[1];
                         });
+
                         var ymax = d3.max(this.data[i].data, function (d) {
                             return d[1];
                         });
@@ -1430,10 +1465,11 @@ return /******/ (function(modules) { // webpackBootstrap
                 this.zoom = d3.behavior.zoom()
                     .x(this.x)
                     .y(this.y)
-                    .scaleExtent([1, 10])
+                    .scaleExtent([1, 20])
                     .on('zoom', this.zoomed.bind(this));
 
-                var slider = d3.select('#zoom-slider')
+                var zoomSlider = this.$$('#zoom-slider');
+                var slider = d3.select(zoomSlider)
                   .attr("value", this.zoom.scaleExtent()[0])
                   .attr("min", this.zoom.scaleExtent()[0])
                   .attr("max", this.zoom.scaleExtent()[1])
@@ -1481,6 +1517,34 @@ return /******/ (function(modules) { // webpackBootstrap
                 this.svg.selectAll('.data-representation').remove();
                 for (var i = 0; i < this.data.length; i++) {
 
+                    if (this.data[i].regions) {
+                    
+                        this.svg.selectAll('.region-marker').remove();
+                        
+                        for (var k = 0; k < this.data[i].regions.length; k++) {
+                            var region = this.data[i].regions[k];
+                            var coordinates = this.getRegionCoordinates(region);
+
+                            var rgb = d3.rgb(this.data[i].color || colors[i]);
+                            if (region.length == 2 || region.length == 4) {
+                                this.svg
+                                   .append('rect')
+                                   .attr('id', 'region-marker' + i + '-' + k)
+                                   .attr('class', 'region-marker')
+                                   .attr('clip-path', 'url(#clip-lines)')
+                                   .attr('x', coordinates.x)
+                                   .attr('y', coordinates.y)
+                                   .attr('width', coordinates.width)
+                                   .attr('height', coordinates.height)
+                                   .style('fill', 'rgba(' + rgb.r + ',' + rgb.g + ',' + rgb.b + ',' + 0.25 + ')')
+                                   .attr('stroke', rgb.toString())
+                                   .attr('stroke-width', 1)
+
+                                   .style('z-index', 0)
+                                   .style('pointer-events', 'none')
+                            }
+                        }
+                    }
                     if (this.data[i].type == 'dots') {
                         var x = this.x;
                         var y = this.y;
@@ -1494,7 +1558,7 @@ return /******/ (function(modules) { // webpackBootstrap
                            .attr("cy", this.getY)
                            .attr('clip-path', 'url(#clip-lines)')
                            .attr('stroke', 'none')
-
+                           .style('z-index', 4)
                            .attr('fill', this.data[i].color || colors[i]);
                     }
                     else {
@@ -1505,6 +1569,7 @@ return /******/ (function(modules) { // webpackBootstrap
                            .attr('clip-path', 'url(#clip-lines)')
                            .attr('stroke', this.data[i].color || colors[i])
                            .attr('stroke-width', 2)
+                           .style('z-index', 4)
                            .attr('fill', 'none');
                     }
 
@@ -1516,18 +1581,18 @@ return /******/ (function(modules) { // webpackBootstrap
                 for (var i = 0; i < this.data.length; i++) {
                     yindex = i % 3;
                     xIndex = Math.floor(i / 3);
-                    this.svg.select('.legend-rect' + i).remove();
+                    this.svg.select('#legend-rect' + i).remove();
                     this.svg.append('rect')
-                        .attr('class', 'legend-rect' + i)
+                        .attr('id', 'legend-rect' + i)
                         .attr('x', xIndex * xSpace)
                         .attr('y', this.height + this.margin.bottom - 28 - 30 + yindex * 20)
                         .attr('width', 15)
                         .attr('height', 15)
                         .style('fill', this.data[i].color || colors[i])
 
-                    this.svg.select('.legend-text' + i).remove();
+                    this.svg.select('#legend-text' + i).remove();
                     this.svg.append('text')
-                        .attr('class', 'legend-text' + i)
+                        .attr('id', 'legend-text' + i)
                         .attr('x', xIndex * xSpace + 20)
                         .attr('y', this.height + this.margin.bottom - 15 - 30 + yindex * 20)
                         .style('fill', 'black')
@@ -1548,7 +1613,7 @@ return /******/ (function(modules) { // webpackBootstrap
                         .attr('stroke', '#00475E')
 
                     focus.append('text')
-                        .attr('class', 'text-bx' + i)
+                        .attr('id', 'text-bx' + i)
                         .attr('x', 9)
                         .attr('y', 19)
                         .attr('fill', 'black')
@@ -1556,13 +1621,13 @@ return /******/ (function(modules) { // webpackBootstrap
                         .attr('stroke-width', 3)
                         .attr('dy', '.35em')
                     focus.append('text')
-                        .attr('class', 'text-x' + i)
+                        .attr('id', 'text-x' + i)
                         .attr('x', 9)
                         .attr('y', 19)
                         .attr('dy', '.35em')
 
                     focus.append('text')
-                       .attr('class', 'text-by' + i)
+                       .attr('id', 'text-by' + i)
                        .attr('x', 9)
                        .attr('dy', '.35em')
                        .attr('fill', 'black')
@@ -1570,7 +1635,7 @@ return /******/ (function(modules) { // webpackBootstrap
                        .attr('stroke-width', 3)
 
                     focus.append('text')
-                        .attr('class', 'text-y' + i)
+                        .attr('id', 'text-y' + i)
                         .attr('x', 9)
                         .attr('dy', '.35em');
 
@@ -1585,6 +1650,32 @@ return /******/ (function(modules) { // webpackBootstrap
                     Polymer.dom(this.$.canvas).removeChild(children[i]);
                 }
                 Polymer.dom.flush();
+
+            },
+            getRegionCoordinates: function (region) {
+                var width = 5;
+                var height = this.height;
+                var y = height;
+                if (region.length >= 2) {
+                    if (this.config.xtype == 'date' && typeof region[0] === 'string') {
+                        region[0] = this.parseDate[0](region[0]);
+                        region[1] = this.parseDate[0](region[1]);
+                    }
+                    width = Math.max(5, this.x(region[1]) - this.x(region[0]));
+                }
+
+                if (region.length == 4) {
+
+                    if (this.config.ytype == 'date' && typeof region[2] === 'string') {
+                        region[2] = this.parseDate[1](region[2]);
+                        region[3] = this.parseDate[1](region[3]);
+                    }
+
+                    y = this.y(region[2]);
+                    height = Math.max(5, (this.y(region[2]) - this.y(region[3])));
+                }
+
+                return { x: this.x(region[0]), y: y - height, width: width, height: height };
 
             },
             resetZoom: function () {
@@ -1605,7 +1696,8 @@ return /******/ (function(modules) { // webpackBootstrap
             },
             zoomed: function () {
 
-                d3.select('#zoom-slider').property("value", d3.event.scale);
+                var zoomSlider = this.$$('#zoom-slider');
+                d3.select(zoomSlider).property("value", d3.event.scale);
 
                 var t = d3.event.translate,
                     s = d3.event.scale;
@@ -1620,15 +1712,26 @@ return /******/ (function(modules) { // webpackBootstrap
 
                 for (var i = 0; i < this.data.length; i++) {
                     this.svg.select('.line' + i).attr('d', this.lineGen(this.data[i].data));
-                    this.svg.select('.dot' + i)
-                        .attr("r", 10)
-                        .attr("cx", this.getX)
-                        .attr("cy", this.getY)
+                   
 
                     this.svg.selectAll('.dot' + i)
                             .data(this.data[i].data)
+                            .attr("r", 3)
                             .attr("cx", this.getX)
                             .attr("cy", this.getY)
+
+                    if (this.data[i].regions) {
+                        for (var k = 0; k < this.data[i].regions.length; k++) {
+                            var region = this.data[i].regions[k];
+                            var coordinates = this.getRegionCoordinates(region);
+                            this.svg
+                                   .select('#region-marker' + i + '-' + k)
+                                   .attr('x', coordinates.x)
+                                   .attr('y', coordinates.y)
+                                   .attr('width', coordinates.width)
+                                   .attr('height', coordinates.height)
+                        }
+                    }
                 }
                 // .attr('transform', 'translate(' + d3.event.translate + ')scale(' + d3.event.scale + ')');
                 this.svg.select('.x.axis').call(this.xAxis).selectAll('text')
@@ -1650,6 +1753,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
             },
             mousemove: function () {
+
                 //console.log(d3.select('#clientRect'));
                 var bisectDate = d3.bisector(function (d) { return d[0]; }).left;
                 var posHash = {};
@@ -1657,7 +1761,7 @@ return /******/ (function(modules) { // webpackBootstrap
                     var focus = this.focuses[k];
                     var x0 = this.x.invert(d3.mouse(this.rect[0][0])[0]);
                     var i = bisectDate(this.data[k].data, x0, 1);
-                    d0 = this.data[k].data[i - 1],
+                    var d0 = this.data[k].data[i - 1],
                     d1 = this.data[k].data[i];
 
                     var d = d0;
@@ -1686,16 +1790,16 @@ return /******/ (function(modules) { // webpackBootstrap
                     var textX = d[0];
                     var textY = d[1];
 
-                    if (this.config.xtype == 'date') {
+                    if (this.config.xtype == 'date' && this.config.xprint) {
                         textX = d3.time.format(this.config.xprint)(d[0]);
                     }
-                    if (this.config.ytype == 'date') {
+                    if (this.config.ytype == 'date' && this.config.yprint) {
                         textY = d3.time.format(this.config.yprint)(d[1]);
                     }
-                    focus.select('.text-x' + k).text(textX);
-                    focus.select('.text-bx' + k).text(textX);
-                    focus.select('.text-y' + k).text(textY);
-                    focus.select('.text-by' + k).text(textY);
+                    focus.select('#text-x' + k).text(textX);
+                    focus.select('#text-bx' + k).text(textX);
+                    focus.select('#text-y' + k).text(textY);
+                    focus.select('#text-by' + k).text(textY);
                 }
 
             },
@@ -1726,6 +1830,17 @@ return /******/ (function(modules) { // webpackBootstrap
                 source = '<?xml version="1.0" standalone="no"?>' + source.replace(/\n/g, '');
 
                 return source;
+            },
+
+            handleExportClicked: function (event) {
+                var index = event.target.selectedIndex;
+                if (index == 1) {
+                    this.getSvg();
+                }
+                else if (index == 2) {
+                    this.getPng();
+                }
+                event.target.selectedIndex = 0;
             },
             getSvg: function () {
                 var source = this.convertSvg();
