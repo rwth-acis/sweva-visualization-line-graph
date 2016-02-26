@@ -1282,10 +1282,11 @@ return /******/ (function(modules) { // webpackBootstrap
                   .attr('height', this.height);
 
                 this.svg.append('text')
-                    .attr('class', 'y label')
+                    .attr('class', 'x label')
                     .attr('text-anchor', 'end')
                     .attr('x', this.width - 6)
                     .attr('y', this.height - 6)
+                    .style('background', 'rgba(255,255,255,0.5)')
                     .text(this.config.xlabel);
 
                 this.svg.append('text')
@@ -1304,6 +1305,7 @@ return /******/ (function(modules) { // webpackBootstrap
                     .attr('y', -15)
                     .attr('font-size', 20)
                     .attr('font-weight', 600)
+                    .style('background', 'rgba(255,255,255,0.5)')
                     .text(this.config.label);
 
                 this.getX = (function (d) {
@@ -1484,10 +1486,13 @@ return /******/ (function(modules) { // webpackBootstrap
                         .style('text-anchor', 'end')
                         .attr('dx', '-.8em')
                         .attr('dy', '.15em')
-                        .attr('transform', 'rotate(-65)');
+                        .attr('transform', 'rotate(-65)')
+                        .attr('font-size', '12px');
 
                 this.svg.select('.y.axis')
-                    .call(this.yAxis);
+                    .call(this.yAxis)
+                    .selectAll('text')
+                    .attr('font-size', '12px');
 
                 this.svg.selectAll('.axis path, .axis line')
                         .attr('fill', 'none')
@@ -1502,15 +1507,15 @@ return /******/ (function(modules) { // webpackBootstrap
                   .y(this.getY);
 
                 var colors = [
-                    '#1D00B5',
-                    '#BA2E00',
-                    '#8B00BA',
-                    '#078700',
-                    '#003487',
+                    '#008EB5',
+                    '#FF8800',
+                    '#00B374',
+                    '#0AC400',
+                    '#5D7EB3',
                     '#000000',
-                    '#006942',
-                    '#690027',
-                    '#9E494A'
+                    '#FF5959',
+                    '#EC45FF',
+                    '#AACC00'
 
                 ];
 
@@ -1625,6 +1630,7 @@ return /******/ (function(modules) { // webpackBootstrap
                         .attr('x', 9)
                         .attr('y', 19)
                         .attr('dy', '.35em')
+                        .style('background', 'rgba(255,255,255,0.5)')
 
                     focus.append('text')
                        .attr('id', 'text-by' + i)
@@ -1637,7 +1643,8 @@ return /******/ (function(modules) { // webpackBootstrap
                     focus.append('text')
                         .attr('id', 'text-y' + i)
                         .attr('x', 9)
-                        .attr('dy', '.35em');
+                        .attr('dy', '.35em')
+                        .style('background', 'rgba(255,255,255,0.5)')
 
                     this.focuses.push(focus);
                 }
