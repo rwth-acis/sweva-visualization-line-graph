@@ -1,6 +1,6 @@
 ## sweva-visualization-line-graph
 
-Line Chart visualization module for the Collaborative Visualization Tool.
+Line Chart visualization module for SWeVA.
 
 
 ## Dependencies
