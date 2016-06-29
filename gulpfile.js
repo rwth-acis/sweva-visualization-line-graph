@@ -4,6 +4,7 @@ var vulcanize = require('gulp-vulcanize');
 var replace = require('gulp-replace');
 var minifyHTML = require('gulp-minify-html');
 var minifyInline = require('gulp-minify-inline');
+var rename = require('gulp-rename');
 
 var FILE = 'sweva-visualization-line-graph.html'
 gulp.task('pack', function () {
@@ -23,7 +24,10 @@ gulp.task('pack', function () {
             quotes: true,
             empty: true,
             spare: true
-        }))        
+        }))
+        .pipe(rename({
+            suffix: '.min'
+        }))
         .pipe(gulp.dest('dist'))
 });
 
@@ -40,3 +44,5 @@ gulp.task('packdev', function () {
         }))        
         .pipe(gulp.dest('dist'))
 });
+
+gulp.task('build', ['pack', 'packdev']);
