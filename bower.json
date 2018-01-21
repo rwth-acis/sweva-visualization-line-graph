@@ -1,6 +1,6 @@
 {
   "name": "sweva-visualization-line-graph",
-  "version": "1.0.7",
+  "version": "2.0.0",
   "authors": [
     "Anonymous <anonymous@example.com>"
   ],
@@ -20,15 +20,16 @@
   "dependencies": {
     "d3": "3.5.12",
     "download-as-file": "https://github.com/bahmutov/download-as-file.git",
-    "polymer": "Polymer/polymer#^1.2.0",
-    "paper-dropdown-menu": "PolymerElements/paper-dropdown-menu#^1.0.0",
-    "paper-menu": "PolymerElements/paper-menu#^1.0.0",
-    "paper-item": "PolymerElements/paper-item#^1.0.0",
-    "paper-slider": "PolymerElements/paper-slider#^1.0.0",
-    "paper-button": "PolymerElements/paper-button#^1.0.0"
+    "polymer": "Polymer/polymer#^2.0.0",
+    "paper-dropdown-menu": "PolymerElements/paper-dropdown-menu#^2.0.0",
+    "paper-listbox": "PolymerElements/paper-listbox#^2.0.0",
+    "paper-item": "PolymerElements/paper-item#^2.0.0",
+    "paper-slider": "PolymerElements/paper-slider#^2.0.4",
+    "paper-button": "PolymerElements/paper-button#^2.0.0"
   },
   "devDependencies": {
-    "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
-    "web-component-tester": "^4.0.0"
+    "iron-component-page": "PolymerElements/iron-component-page#^3.0.1",
+    "webcomponentsjs": "webcomponents/webcomponentsjs#^1.0.0",
+    "web-component-tester": "^6.0.0"
   }
 }
