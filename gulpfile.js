@@ -8,27 +8,26 @@ var rename = require('gulp-rename');
 
 var FILE = 'sweva-visualization-line-graph.html'
 gulp.task('pack', function () {
-    return gulp.src(FILE)
-        .pipe(replace(/<link.*.html">/g, ''))
-        .pipe(replace(/"\.\.\//g, '"../bower_components/'))
-       
-        .pipe(gulp.dest('dist'))
-        .pipe(vulcanize({
-            stripComments: true,
-            inlineCss: true,
-            inlineScripts: true
-        }))
-       
-        .pipe(minifyInline())
-        .pipe(minifyHTML({
-            quotes: true,
-            empty: true,
-            spare: true
-        }))
-        .pipe(rename({
-            suffix: '.min'
-        }))
-        .pipe(gulp.dest('dist'))
+  return gulp.src(FILE)
+    .pipe(replace(/<link.*.html">/g, ''))
+    .pipe(replace(/"\.\.\//g, '"../bower_components/'))
+
+    .pipe(gulp.dest('dist'))
+    .pipe(vulcanize({
+      stripComments: true,
+      inlineCss: true,
+      inlineScripts: true
+    }))
+    .pipe(minifyInline())
+    .pipe(minifyHTML({
+      quotes: true,
+      empty: true,
+      spare: true
+    }))
+    .pipe(rename({
+      suffix: '.min'
+    }))
+    .pipe(gulp.dest('dist'))
 });
 
 gulp.task('packdev', function () {

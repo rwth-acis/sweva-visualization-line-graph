@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b092653c-ad9d-45b3-9fae-8b2a3aef7781" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/sweva-visualization-line-graph.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/sweva-visualization-line-graph.min.html" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gulpfile.js" afterPath="$PROJECT_DIR$/gulpfile.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sweva-visualization-line-graph.html" afterPath="$PROJECT_DIR$/sweva-visualization-line-graph.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -48,11 +51,41 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sweva-visualization-line-graph.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="sweva-visualization-line-graph.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sweva-visualization-line-graph.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="266">
-              <caret line="652" column="15" lean-forward="false" selection-start-line="652" selection-start-column="15" selection-end-line="652" selection-end-column="15" />
+            <state relative-caret-position="13675">
+              <caret line="851" column="96" lean-forward="false" selection-start-line="851" selection-start-column="96" selection-end-line="851" selection-end-column="96" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sweva-visualization-line-graph.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dist/sweva-visualization-line-graph.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-76651">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="analysis.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/analysis.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="gulpfile.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/gulpfile.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="174">
+              <caret line="6" column="8" lean-forward="false" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -85,6 +118,7 @@
         <option value="$PROJECT_DIR$/demo/index.html" />
         <option value="$PROJECT_DIR$/bower.json" />
         <option value="$PROJECT_DIR$/sweva-visualization-line-graph.html" />
+        <option value="$PROJECT_DIR$/gulpfile.js" />
       </list>
     </option>
   </component>
@@ -100,6 +134,9 @@
       </GulpfileState>
     </gulpfiles>
     <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NodeModulesDirectoryManager">
+    <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
   <component name="ProjectFrameBounds">
     <option name="y" value="3" />
@@ -132,6 +169,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="sweva-visualization-line-graph" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sweva-visualization-line-graph" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sweva-visualization-line-graph" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dist" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -186,12 +237,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1516532133262</updated>
-      <workItem from="1516532134511" duration="7688000" />
+      <workItem from="1516532134511" duration="8841000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7688000" />
+    <option name="totallyTimeSpent" value="8841000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="3" width="1920" height="2157" extended-state="4" />
@@ -253,10 +304,42 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/dist/sweva-visualization-line-graph.min.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-60646">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/analysis.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dist/sweva-visualization-line-graph.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-76651">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/sweva-visualization-line-graph.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="652" column="15" lean-forward="false" selection-start-line="652" selection-start-column="15" selection-end-line="652" selection-end-column="15" />
+        <state relative-caret-position="13675">
+          <caret line="851" column="96" lean-forward="false" selection-start-line="851" selection-start-column="96" selection-end-line="851" selection-end-column="96" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gulpfile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="6" column="8" lean-forward="false" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
           <folding />
         </state>
       </provider>
