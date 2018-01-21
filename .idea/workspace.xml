@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b092653c-ad9d-45b3-9fae-8b2a3aef7781" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower.json" afterPath="$PROJECT_DIR$/bower.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/demo/index.html" afterPath="$PROJECT_DIR$/demo/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sweva-visualization-line-graph.html" afterPath="$PROJECT_DIR$/sweva-visualization-line-graph.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -52,8 +51,8 @@
       <file leaf-file-name="sweva-visualization-line-graph.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/sweva-visualization-line-graph.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="701">
-              <caret line="1315" column="88" lean-forward="false" selection-start-line="1315" selection-start-column="82" selection-end-line="1315" selection-end-column="88" />
+            <state relative-caret-position="266">
+              <caret line="652" column="15" lean-forward="false" selection-start-line="652" selection-start-column="15" selection-end-line="652" selection-end-column="15" />
               <folding />
             </state>
           </provider>
@@ -72,6 +71,9 @@
       <find>configChanged</find>
       <find>set</find>
       <find>yIndex</find>
+      <find>update</find>
+      <find>resize</find>
+      <find>zoomed</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -184,15 +186,15 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1516532133262</updated>
-      <workItem from="1516532134511" duration="3867000" />
+      <workItem from="1516532134511" duration="7688000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3867000" />
+    <option name="totallyTimeSpent" value="7688000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="3" width="1920" height="2157" extended-state="5" />
+    <frame x="0" y="3" width="1920" height="2157" extended-state="4" />
     <editor active="true" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
@@ -253,8 +255,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/sweva-visualization-line-graph.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="701">
-          <caret line="1315" column="88" lean-forward="false" selection-start-line="1315" selection-start-column="82" selection-end-line="1315" selection-end-column="88" />
+        <state relative-caret-position="266">
+          <caret line="652" column="15" lean-forward="false" selection-start-line="652" selection-start-column="15" selection-end-line="652" selection-end-column="15" />
           <folding />
         </state>
       </provider>

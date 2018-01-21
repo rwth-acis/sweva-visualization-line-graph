@@ -650,11 +650,11 @@ Example:
             this.zoom.translate([0, 0]).scale(this.zoom.scaleExtent()[0]).event(this.svg);
         }
 
-        slided(event) {
+        slided() {
             var center = [this.width / 2, this.height / 2];
             var translate = this.zoom.translate();
             var scale = this.zoom.scale();
-            var targetZoom = event.immediateValue;
+            var targetZoom = this.shadowRoot.querySelector('#zoom-slider').immediateValue;
             var target = [(center[0] - translate[0]) / scale, (center[1] - translate[1]) / scale];
 
             translate[0] += center[0] - (target[0] * targetZoom + translate[0]);
