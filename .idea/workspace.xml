@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b092653c-ad9d-45b3-9fae-8b2a3aef7781" name="Default" comment="" />
+    <list default="true" id="b092653c-ad9d-45b3-9fae-8b2a3aef7781" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower.json" afterPath="$PROJECT_DIR$/bower.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sweva-visualization-line-graph.html" afterPath="$PROJECT_DIR$/sweva-visualization-line-graph.html" />
+    </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -28,8 +32,8 @@
       <file leaf-file-name="bower.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bower.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="899">
-              <caret line="31" column="62" lean-forward="false" selection-start-line="31" selection-start-column="62" selection-end-line="31" selection-end-column="62" />
+            <state relative-caret-position="841">
+              <caret line="29" column="55" lean-forward="false" selection-start-line="29" selection-start-column="55" selection-end-line="29" selection-end-column="55" />
               <folding />
             </state>
           </provider>
@@ -55,7 +59,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="package.json" pinned="false" current-in-tab="true">
+      <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
@@ -65,12 +69,38 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sweva-visualization-line-graph.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="sweva-visualization-line-graph.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/sweva-visualization-line-graph.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="870">
-              <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="31" selection-end-column="51" />
+            <state relative-caret-position="2276">
+              <caret line="889" column="123" lean-forward="false" selection-start-line="889" selection-start-column="123" selection-end-line="889" selection-end-column="123" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#div#0;n#paper-dialog#0;n#template#0;n#dom-module#0;n#!!top" expanded="true" />
+                <marker date="1524835724071" expanded="true" signature="30612:30641" ph="data:" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/demo/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-14923">
+              <caret line="15" column="57" lean-forward="false" selection-start-line="15" selection-start-column="57" selection-end-line="15" selection-end-column="57" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sweva-visualization-line-graph.min.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dist/sweva-visualization-line-graph.min.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-406">
+              <caret line="0" column="3375" lean-forward="false" selection-start-line="0" selection-start-column="3375" selection-end-line="0" selection-end-column="3375" />
+              <folding>
+                <element signature="n#style#0;n#select#0;n#div#0;n#div#1;n#template#0;n#dom-module#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#paper-slider#0;n#div#1;n#div#1;n#template#0;n#dom-module#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -91,10 +121,13 @@
       <find>update</find>
       <find>resize</find>
       <find>zoomed</find>
-      <find>d3</find>
       <find>d3.min</find>
       <find>d3=</find>
       <find>d3 =</find>
+      <find>d3</find>
+      <find>export-select</find>
+      <find>handleExportClicked</find>
+      <find>convertSvg</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -104,12 +137,12 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/demo/index.html" />
-        <option value="$PROJECT_DIR$/bower.json" />
         <option value="$PROJECT_DIR$/gulpfile.js" />
         <option value="$PROJECT_DIR$/package.json" />
-        <option value="$PROJECT_DIR$/sweva-visualization-line-graph.html" />
-        <option value="$PROJECT_DIR$/dist/sweva-visualization-line-graph.min.html" />
         <option value="$PROJECT_DIR$/dist/sweva-visualization-line-graph.html" />
+        <option value="$PROJECT_DIR$/dist/sweva-visualization-line-graph.min.html" />
+        <option value="$PROJECT_DIR$/bower.json" />
+        <option value="$PROJECT_DIR$/sweva-visualization-line-graph.html" />
       </list>
     </option>
   </component>
@@ -131,7 +164,7 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="y" value="3" />
-    <option name="width" value="1900" />
+    <option name="width" value="3840" />
     <option name="height" value="2157" />
   </component>
   <component name="ProjectView">
@@ -172,7 +205,67 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="node_modules" />
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sweva-visualization-line-graph" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sweva-visualization-line-graph" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dist" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sweva-visualization-line-graph" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sweva-visualization-line-graph" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="demo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sweva-visualization-line-graph" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sweva-visualization-line-graph" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bower_components" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sweva-visualization-line-graph" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sweva-visualization-line-graph" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bower_components" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="paper-input" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -238,6 +331,12 @@
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.npm" factoryName="npm">
@@ -283,18 +382,23 @@
       <workItem from="1516892587474" duration="196000" />
       <workItem from="1516898483073" duration="1520000" />
       <workItem from="1517053780980" duration="44000" />
-      <workItem from="1517053936559" duration="200000" />
+      <workItem from="1517053936559" duration="2079000" />
+      <workItem from="1517214011688" duration="100000" />
+      <workItem from="1517343191830" duration="295000" />
+      <workItem from="1517998789823" duration="694000" />
+      <workItem from="1524821591228" duration="8980000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15738000" />
+    <option name="totallyTimeSpent" value="27686000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="3" width="1900" height="2157" extended-state="4" />
+    <frame x="0" y="3" width="3840" height="2157" extended-state="7" />
+    <editor active="true" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23648648" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17491926" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -302,7 +406,7 @@
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Mongo Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3694051" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.38866857" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -327,22 +431,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/gulpfile.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="6" column="36" lean-forward="false" selection-start-line="6" selection-start-column="36" selection-end-line="6" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bower.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="899">
-          <caret line="31" column="62" lean-forward="false" selection-start-line="31" selection-start-column="62" selection-end-line="31" selection-end-column="62" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bower_components/d3/d3.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -371,7 +459,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="150547" lean-forward="false" selection-start-line="0" selection-start-column="150544" selection-end-line="0" selection-end-column="150547" />
-          <folding />
+          <folding>
+            <element signature="n#style#0;n#select#0;n#div#0;n#div#1;n#template#0;n#dom-module#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#paper-slider#0;n#div#1;n#div#1;n#template#0;n#dom-module#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -379,7 +470,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="870">
           <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="31" selection-end-column="51" />
-          <folding />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#paper-dialog#0;n#template#0;n#dom-module#0;n#!!top" expanded="true" />
+            <marker date="1524835724071" expanded="true" signature="30612:30641" ph="data:" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -435,7 +529,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="150547" lean-forward="false" selection-start-line="0" selection-start-column="150544" selection-end-line="0" selection-end-column="150547" />
-          <folding />
+          <folding>
+            <element signature="n#style#0;n#select#0;n#div#0;n#div#1;n#template#0;n#dom-module#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#paper-slider#0;n#div#1;n#div#1;n#template#0;n#dom-module#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -443,7 +540,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="870">
           <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="31" selection-end-column="51" />
-          <folding />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#paper-dialog#0;n#template#0;n#dom-module#0;n#!!top" expanded="true" />
+            <marker date="1524835724071" expanded="true" signature="30612:30641" ph="data:" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -499,7 +599,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="150547" lean-forward="false" selection-start-line="0" selection-start-column="150544" selection-end-line="0" selection-end-column="150547" />
-          <folding />
+          <folding>
+            <element signature="n#style#0;n#select#0;n#div#0;n#div#1;n#template#0;n#dom-module#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#paper-slider#0;n#div#1;n#div#1;n#template#0;n#dom-module#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -507,7 +610,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="870">
           <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="31" selection-end-column="51" />
-          <folding />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#paper-dialog#0;n#template#0;n#dom-module#0;n#!!top" expanded="true" />
+            <marker date="1524835724071" expanded="true" signature="30612:30641" ph="data:" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -555,7 +661,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="172479" lean-forward="false" selection-start-line="0" selection-start-column="172477" selection-end-line="0" selection-end-column="172479" />
-          <folding />
+          <folding>
+            <element signature="n#style#0;n#select#0;n#div#0;n#div#1;n#template#0;n#dom-module#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#paper-slider#0;n#div#1;n#div#1;n#template#0;n#dom-module#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -611,7 +720,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="1748" lean-forward="false" selection-start-line="0" selection-start-column="1748" selection-end-line="0" selection-end-column="1748" />
-          <folding />
+          <folding>
+            <element signature="n#style#0;n#select#0;n#div#0;n#div#1;n#template#0;n#dom-module#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#paper-slider#0;n#div#1;n#div#1;n#template#0;n#dom-module#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -643,7 +755,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="1748" lean-forward="true" selection-start-line="0" selection-start-column="1748" selection-end-line="0" selection-end-column="1748" />
-          <folding />
+          <folding>
+            <element signature="n#style#0;n#select#0;n#div#0;n#div#1;n#template#0;n#dom-module#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#paper-slider#0;n#div#1;n#div#1;n#template#0;n#dom-module#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -654,24 +769,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/demo/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="15" column="57" lean-forward="false" selection-start-line="15" selection-start-column="57" selection-end-line="15" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/analysis.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bower.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="899">
-          <caret line="31" column="62" lean-forward="false" selection-start-line="31" selection-start-column="62" selection-end-line="31" selection-end-column="62" />
           <folding />
         </state>
       </provider>
@@ -692,34 +793,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sweva-visualization-line-graph.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="870">
-          <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="31" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/gulpfile.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="174">
           <caret line="6" column="36" lean-forward="false" selection-start-line="6" selection-start-column="36" selection-end-line="6" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dist/sweva-visualization-line-graph.min.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dist/sweva-visualization-line-graph.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="29">
-          <caret line="9" column="10" lean-forward="false" selection-start-line="9" selection-start-column="10" selection-end-line="9" selection-end-column="10" />
           <folding />
         </state>
       </provider>
@@ -729,6 +806,68 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dist/sweva-visualization-line-graph.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-151380">
+          <caret line="9" column="10" lean-forward="false" selection-start-line="9" selection-start-column="10" selection-end-line="9" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/basic-test.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1293">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dist/sweva-visualization-line-graph.min.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-406">
+          <caret line="0" column="3375" lean-forward="false" selection-start-line="0" selection-start-column="3375" selection-end-line="0" selection-end-column="3375" />
+          <folding>
+            <element signature="n#style#0;n#select#0;n#div#0;n#div#1;n#template#0;n#dom-module#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#paper-slider#0;n#div#1;n#div#1;n#template#0;n#dom-module#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-14923">
+          <caret line="15" column="57" lean-forward="false" selection-start-line="15" selection-start-column="57" selection-end-line="15" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bower.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="841">
+          <caret line="29" column="55" lean-forward="false" selection-start-line="29" selection-start-column="55" selection-end-line="29" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sweva-visualization-line-graph.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2276">
+          <caret line="889" column="123" lean-forward="false" selection-start-line="889" selection-start-column="123" selection-end-line="889" selection-end-column="123" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#paper-dialog#0;n#template#0;n#dom-module#0;n#!!top" expanded="true" />
+            <marker date="1524835724071" expanded="true" signature="30612:30641" ph="data:" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -13,7 +13,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <!--<link rel="import" href="../paper-item/paper-item.html">-->
 <link rel="import" href="../paper-slider/paper-slider.html">
 <link rel="import" href="../paper-button/paper-button.html">
-
+<link rel="import" href="../paper-dialog/paper-dialog.html">
+<link rel="import" href="../paper-input/paper-textarea.html">
 <!--
 An element providing a solution to no problem in particular.
 
@@ -39,12 +40,16 @@ Example:
     <template>
         <style>
             :host {
+                --paper-input-container-input:{
+                    max-height: 75px;
+                };
                 display: block;
                 box-sizing: border-box;
                 font-family: 'Verdana', sans-serif;
                 background-color: white;
                 position: relative;
             }
+
 
             .hidden {
                 display: none;
@@ -74,6 +79,20 @@ Example:
                 font-size: small;
             }
 
+            .dialog-container {
+                display: flex;
+                flex-direction: column;
+                height: 100%;
+                width: 100%;
+                box-sizing: border-box;
+                padding-bottom: 25px;
+            }
+
+            paper-dialog {
+                background: #fff;
+                width: 100%;
+            }
+
             paper-button {
             }
         </style>
@@ -86,6 +105,7 @@ Example:
                     <option value="0" disabled selected>Export as...</option>
                     <option value="1">SVG</option>
                     <option value="2">PNG</option>
+                    <option value="3">iFrame</option>
                 </select>              
             </div>
             <div>
@@ -98,6 +118,19 @@ Example:
         <img id="hiddenImage" class="hidden" />
         <canvas id="hiddenCanvas" class="hidden"></canvas>
         <a id="hiddenLink" class="hidden"></a>
+
+        <paper-dialog id="copy-iframe">
+            <div class="dialog-container">
+                <h2>iFrame</h2>
+                <div style="align-items: center;">
+                    <paper-textarea  label="iFrame link" value="{{iframe}}"></paper-textarea>
+                </div>
+                <div class="buttons">
+                    <paper-button dialog-dismiss>Cancel</paper-button>
+                </div>
+            </div>
+        </paper-dialog>
+
     </template>
     <script>
       class SwevaVisualizationLineGraph extends Polymer.Element {
@@ -128,6 +161,10 @@ Example:
               type: Object,
               value: {},
               //observer: 'configChanged'
+            },
+            iframe: {
+              type: String,
+              value: ''
             }
           }
         }
@@ -145,6 +182,7 @@ Example:
           Polymer.RenderStatus.beforeNextRender(this, function () {
             var select = this.shadowRoot.querySelector('#export-select');
             select.addEventListener('click', this.handleExportClicked.bind(this), false);
+            this.shadowRoot.querySelector('#copy-iframe').fitInto = this;
           });
         }
 
@@ -806,6 +844,9 @@ Example:
             else if (index == 2) {
               this.getPng();
             }
+            else if (index == 3) {
+              this.getiFrame();
+            }
             event.target.selectedIndex = 0;
         }
 
@@ -845,7 +886,13 @@ Example:
             img.src = imgsrc;
         }
 
-
+        getiFrame() {
+          this.iframe = '<iframe src="data:text/html;charset=utf-8,' + encodeURI(this.$.canvas.outerHTML) + '" ></iframe>';
+          var iframe_dialog = this.shadowRoot.querySelector('#copy-iframe');
+          if (iframe_dialog) {
+            iframe_dialog.open();
+          }
+        }
       }
 
       // Register custom element definition using standard platform API
