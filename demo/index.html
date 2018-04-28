@@ -19,8 +19,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <body unresolved>
 
     <sweva-visualization-line-graph>
-    </sweva-visualization-line-graph>   
-    <script>
+    </sweva-visualization-line-graph>
+
+    <sweva-visualization-line-graph data='[{"label":"electricity","color":"#55aa55","type":"dots","data":[["1956-01",1254],["1956-02",1290],["1956-03",1379]],"regions":[["1966-03","1967-07",2000,4000],["1976-03","1987-07"],["1990-03","1990-03"]]}]' config='{"label":"Monthly electricity production in Australia","ylabel":"million kilowatt hours","xlabel":"date","xtype":"date","ytype":"linear","xparse":"%Y-%m","yparse":"","xprint":"%m-%y","yprint":""}'></sweva-visualization-line-graph>
+
+
+       <script>
 
         function change(){
             var graph = document.querySelector('sweva-visualization-line-graph');
@@ -50,7 +54,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 ["1956-01", 1254],
                 ["1956-02", 1290],
                 ["1956-03", 1379],
-                ["1956-04", 1346],
+                /*["1956-04", 1346],
                 ["1956-05", 1535],
                 ["1956-06", 1555],
                 ["1956-07", 1655],
@@ -522,7 +526,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 ["1995-05", 14268],
                 ["1995-06", 14473],
                 ["1995-07", 15359],
-                ["1995-08", 14457]
+                ["1995-08", 14457] */
 
             ],
             "regions": [
