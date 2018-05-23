@@ -10623,12 +10623,16 @@ return /******/ (function(modules) { // webpackBootstrap
     <template>
         <style>
             :host {
+                --paper-input-container-input:{
+                    max-height: 75px;
+                };
                 display: block;
                 box-sizing: border-box;
                 font-family: 'Verdana', sans-serif;
                 background-color: white;
                 position: relative;
             }
+
 
             .hidden {
                 display: none;
@@ -10658,6 +10662,20 @@ return /******/ (function(modules) { // webpackBootstrap
                 font-size: small;
             }
 
+            .dialog-container {
+                display: flex;
+                flex-direction: column;
+                height: 100%;
+                width: 100%;
+                box-sizing: border-box;
+                padding-bottom: 25px;
+            }
+
+            paper-dialog {
+                background: #fff;
+                width: 100%;
+            }
+
             paper-button {
             }
         </style>
@@ -10670,6 +10688,8 @@ return /******/ (function(modules) { // webpackBootstrap
                     <option value="0" disabled="" selected="">Export as...</option>
                     <option value="1">SVG</option>
                     <option value="2">PNG</option>
+                    <option value="3">iFrame</option>
+                    <option value="4">Polymer Element</option>
                 </select>              
             </div>
             <div>
@@ -10682,6 +10702,31 @@ return /******/ (function(modules) { // webpackBootstrap
         <img id="hiddenImage" class="hidden">
         <canvas id="hiddenCanvas" class="hidden"></canvas>
         <a id="hiddenLink" class="hidden"></a>
+
+        <paper-dialog id="copy-iframe">
+            <div class="dialog-container">
+                <h2>iFrame</h2>
+                <div style="align-items: center;">
+                    <paper-textarea label="iFrame link" value="{{link}}"></paper-textarea>
+                </div>
+                <div class="buttons">
+                    <paper-button dialog-dismiss="">Cancel</paper-button>
+                </div>
+            </div>
+        </paper-dialog>
+
+        <paper-dialog id="copy-polymer">
+            <div class="dialog-container">
+                <h2>Polymer Component</h2>
+                <div style="align-items: center;">
+                    <paper-textarea label="Component and data" value="{{link}}"></paper-textarea>
+                </div>
+                <div class="buttons">
+                    <paper-button dialog-dismiss="">Cancel</paper-button>
+                </div>
+            </div>
+        </paper-dialog>
+
     </template>
     <script>
       class SwevaVisualizationLineGraph extends Polymer.Element {
@@ -10706,12 +10751,16 @@ return /******/ (function(modules) { // webpackBootstrap
             data: {
               type: Object,
               value: [],
-              //observer: 'dataChanged'
+              observer: 'dataChanged'
             },
             config: {
               type: Object,
               value: {},
               //observer: 'configChanged'
+            },
+            link: {
+              type: String,
+              value: ''
             }
           }
         }
@@ -10729,6 +10778,7 @@ return /******/ (function(modules) { // webpackBootstrap
           Polymer.RenderStatus.beforeNextRender(this, function () {
             var select = this.shadowRoot.querySelector('#export-select');
             select.addEventListener('click', this.handleExportClicked.bind(this), false);
+            this.shadowRoot.querySelector('#copy-iframe').fitInto = this;
           });
         }
 
@@ -10882,11 +10932,14 @@ return /******/ (function(modules) { // webpackBootstrap
         update(data) {
             if (typeof data != 'undefined') {
               this.data = data;
+              this.data_unchanged = JSON.parse(JSON.stringify(data));
               return;
             }
 
             if(!this.data[0]){
               return;
+            }else{
+              this.data_unchanged = JSON.parse(JSON.stringify(this.data));
             }
             var xMin = Number.POSITIVE_INFINITY;
             var xMax = 0;
@@ -10904,7 +10957,7 @@ return /******/ (function(modules) { // webpackBootstrap
                       this.data[i].data[k][0] = new Date(this.data[i].data[k][0]);
                     }
                     else {
-                      this.data[i].data[k][0] = this.parseDate[0](this.data[i].data[k][0]);
+                      if(this.data_unchanged[i].data[k][0] === this.data[i].data[k][0]) this.data[i].data[k][0] = this.parseDate[0](this.data[i].data[k][0]);
                     }
 
                   }
@@ -10919,7 +10972,7 @@ return /******/ (function(modules) { // webpackBootstrap
                       this.data[i].data[k][1] = new Date(this.data[i].data[k][1]);
                     }
                     else {
-                      this.data[i].data[k][1] = this.parseDate[1](this.data[i].data[k][1]);
+                      if(this.data_unchanged[i].data[k][1] === this.data[i].data[k][1]) this.data[i].data[k][1] = this.parseDate[1](this.data[i].data[k][1]);
                     }
                   }
                 }
@@ -11390,6 +11443,12 @@ return /******/ (function(modules) { // webpackBootstrap
             else if (index == 2) {
               this.getPng();
             }
+            else if (index == 3) {
+              this.getiFrame();
+            }
+            else if (index == 4) {
+              this.getPolymerElement();
+            }
             event.target.selectedIndex = 0;
         }
 
@@ -11429,7 +11488,21 @@ return /******/ (function(modules) { // webpackBootstrap
             img.src = imgsrc;
         }
 
+        getiFrame() {
+          this.link = '<iframe src="data:text/html;charset=utf-8,' + encodeURI(this.$.canvas.outerHTML) + '" ></iframe>';
+          var iframe_dialog = this.shadowRoot.querySelector('#copy-iframe');
+          if (iframe_dialog) {
+            iframe_dialog.open();
+          }
+        }
 
+        getPolymerElement(){
+          this.link = '<sweva-visualization-line-graph data=\''+ JSON.stringify(this.data_unchanged)/*.replace(/'/g, "\\'")*/ +'\' config=\''+ JSON.stringify(this.config) +'\'></sweva-visualization-line-graph>';
+          var polymer_link_dialog = this.shadowRoot.querySelector('#copy-polymer');
+          if (polymer_link_dialog) {
+            polymer_link_dialog.open();
+          }
+        }
       }
 
       // Register custom element definition using standard platform API
